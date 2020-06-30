@@ -6,6 +6,6 @@ import org.hibernate.dialect.SQLServerDialect;
 
 public class UnicodeSQLServerDialect extends SQLServerDialect {
 	public UnicodeSQLServerDialect() {
-		registerColumnType(Types.VARCHAR, "nvarchar($l)");
+		registerColumnType(Types.VARCHAR, "nvarchar(max)");
 	}
 }

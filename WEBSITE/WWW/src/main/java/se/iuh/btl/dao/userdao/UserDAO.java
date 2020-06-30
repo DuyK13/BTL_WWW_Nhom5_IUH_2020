@@ -11,6 +11,6 @@ public interface UserDAO {
 	public void removeUser(User user);
 	public List<User> getListUsers();
 	public User getUserById(int id);
-	public User getUserByName(int name);
+	public User getUserByUserName(String username);
 	
 }

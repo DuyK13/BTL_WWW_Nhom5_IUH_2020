@@ -43,7 +43,7 @@
 								<td>${chocolate.amount}</td>
 								<td>${chocolate.cost}</td>
 								<td>${chocolate.description}</td>
-								<td>${chocolate.listImage.get(0)}</td>
+								<td>${chocolate.image}</td>
 								<td>${chocolate.discount}</td>
 								<td>${chocolate.category.name}</td>
 							</tr>

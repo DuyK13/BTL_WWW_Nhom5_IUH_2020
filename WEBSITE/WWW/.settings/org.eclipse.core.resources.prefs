@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/main/java/se/iuh/btl/controller/ChocolateController.java=UTF-8
+encoding//src/main/java/se/iuh/btl/dao/categorydao/CategoryDAO.java=UTF-8
+encoding//src/main/java/se/iuh/btl/dao/chocolatedao/ChocolateDAO.java=UTF-8
+encoding//src/main/java/se/iuh/btl/service/categoryservice/CategoryService.java=UTF-8
+encoding/<project>=UTF-8

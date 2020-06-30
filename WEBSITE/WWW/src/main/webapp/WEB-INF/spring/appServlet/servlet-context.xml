@@ -131,4 +131,21 @@
 		<beans:property name="categoryDAO" ref="categoryDAO"></beans:property>
 	</beans:bean>
 	<mvc:annotation-driven />
+	<beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	    <!-- SMTP settings -->
+	    <beans:property name="host" value="smtp.gmail.com" > </beans:property>
+	    <beans:property name="port" value="587" > </beans:property>
+	    <beans:property name="username" value="0982127518gktc@gmail.com" > </beans:property>
+		<beans:property name="password" value="0982127518GKTC" > </beans:property>
+	 
+		    <beans:property name="javaMailProperties">
+	        <!-- additional properties specific to JavaMail -->
+	        <beans:props>
+	            <beans:prop key="mail.transport.protocol">smtp</beans:prop>
+	            <beans:prop key="mail.smtp.auth">true</beans:prop>
+	            <beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+	        </beans:props>
+	    </beans:property>
+	</beans:bean>
+
 </beans:beans>

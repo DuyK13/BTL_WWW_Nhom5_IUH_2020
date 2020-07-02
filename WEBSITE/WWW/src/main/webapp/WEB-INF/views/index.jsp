@@ -11,22 +11,19 @@
 	<meta name="description" content="">
 	<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
 	<!-- bootstrap -->
-	<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="resources/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link href="resources/themes/css/bootstrappage.css" rel="stylesheet" />
+	<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+	<link href="resources/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="resources/css/bootstrappage.css" rel="stylesheet" />
 	
 	<!-- global styles -->
-	<link href="<c:url value="resources/themes/css/flexslider.css"/>" rel="stylesheet" />
-	<link href="<c:url value="resources/themes/css/main.css"/>" rel="stylesheet" />
+	<link href="<c:url value="resources/css/flexslider.css"/>" rel="stylesheet" />
+	<link href="<c:url value="resources/css/main.css"/>" rel="stylesheet" />
 	
 	<!-- scripts -->
-	<%-- <script src="<c:url value="resources/themes/js/jquery-1.7.2.min.js"/>"></script>
-	<script src="<c:url value="resources/bootstrap/js/bootstrap.min.js"/>"></script>
-	<script src="<c:url value="resources/themes/js/superfish.js"/>"></script>
-	<script src="<c:url value="resources/themes/js/jquery.scrolltotop.js"/>"></script> --%>
-	
-	<%-- <link rel="stylesheet" href="<c:url value="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>" crossorigin="anonymous">
-	<script src="<c:url value="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"/>" crossorigin="anonymous"></script> --%>
+	<script src="<c:url value="resources/js/jquery-3.3.1.min.js"/>"></script>
+	<script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>
+	<!-- <script src="<c:url value="resources/js/superfish.js"/>"></script>
+	<script src="<c:url value="resources/js/jquery.scrolltotop.js"/>"></script> -->
 	
 </head>
 <body>
@@ -65,7 +62,7 @@
 		<section class="navbar main-menu">
 			<div class="navbar-inner main-menu">
 				<a href="index.html" class="logo pull-left">
-				<img src="resources/themes/images/chocolate_store.jpg" class="site_logo" alt=""></a>
+				<img src="resources/images/chocolate_store.jpg" class="site_logo" alt=""></a>
 				<nav id="menu" class="pull-right">
 					<ul>
 						<li><a href="./products.html">Trang chủ</a></li>
@@ -90,10 +87,10 @@
 			data-ride="carousel">
 			<div class="carousel-inner">
 				<%-- <div class="carousel-item active">
-					<img src="<c:url value="resources/themes/images/banner1.png"/>" alt="Banner1" />
+					<img src="<c:url value="resources/images/banner1.png"/>" alt="Banner1" />
 				</div> --%>
 				<div class="carousel-item">
-					<img src="<c:url value="resources/themes/images/banner2.png"/>" alt="Banner2" />
+					<img src="<c:url value="resources/images/banner2.png"/>" alt="Banner2" />
 					<div class="carousel-caption d-none d-md-block">
 						<h1 style="color: red;">Mid season sale</h1>
 							<p>
@@ -170,7 +167,7 @@
 													<span class="sale_tag"></span>
 													<p>
 														<a href="product_detail.html"><img
-															src="resources/themes/images/cloth/bootstrap-women-ware2.jpg"
+															src="resources/images/cloth/bootstrap-women-ware2.jpg"
 															alt="" /></a>
 													</p>
 													<a href="product_detail.html" class="title">Ut wisi
@@ -184,7 +181,7 @@
 												<div class="product-box">
 													<p>
 														<a href="product_detail.html"><img
-															src="resources/themes/images/cloth/bootstrap-women-ware1.jpg"
+															src="resources/images/cloth/bootstrap-women-ware1.jpg"
 															alt="" /></a>
 													</p>
 													<a href="product_detail.html" class="title">Quis
@@ -198,7 +195,7 @@
 												<div class="product-box">
 													<p>
 														<a href="product_detail.html"><img
-															src="resources/themes/images/cloth/bootstrap-women-ware6.jpg"
+															src="resources/images/cloth/bootstrap-women-ware6.jpg"
 															alt="" /></a>
 													</p>
 													<a href="product_detail.html" class="title">Know
@@ -212,7 +209,7 @@
 												<div class="product-box">
 													<p>
 														<a href="product_detail.html"><img
-															src="resources/themes/images/cloth/bootstrap-women-ware5.jpg"
+															src="resources/images/cloth/bootstrap-women-ware5.jpg"
 															alt="" /></a>
 													</p>
 													<a href="product_detail.html" class="title">You think
@@ -230,7 +227,7 @@
 												<div class="product-box">
 													<p>
 														<a href="product_detail.html"><img
-															src="resources/themes/images/cloth/bootstrap-women-ware4.jpg"
+															src="resources/images/cloth/bootstrap-women-ware4.jpg"
 															alt="" /></a>
 													</p>
 													<a href="product_detail.html" class="title">Know
@@ -244,7 +241,7 @@
 												<div class="product-box">
 													<p>
 														<a href="product_detail.html"><img
-															src="resources/themes/images/cloth/bootstrap-women-ware3.jpg"
+															src="resources/images/cloth/bootstrap-women-ware3.jpg"
 															alt="" /></a>
 													</p>
 													<a href="product_detail.html" class="title">Ut wisi
@@ -258,7 +255,7 @@
 												<div class="product-box">
 													<p>
 														<a href="product_detail.html"><img
-															src="resources/themes/images/cloth/bootstrap-women-ware2.jpg"
+															src="resources/images/cloth/bootstrap-women-ware2.jpg"
 															alt="" /></a>
 													</p>
 													<a href="product_detail.html" class="title">You think
@@ -272,7 +269,7 @@
 												<div class="product-box">
 													<p>
 														<a href="product_detail.html"><img
-															src="resources/themes/images/cloth/bootstrap-women-ware1.jpg"
+															src="resources/images/cloth/bootstrap-women-ware1.jpg"
 															alt="" /></a>
 													</p>
 													<a href="product_detail.html" class="title">Quis
@@ -292,7 +289,7 @@
 						<div class="span4">
 							<div class="service">
 								<div class="responsive">
-									<img src="resources/themes/images/feature_img_2.png" alt="" />
+									<img src="resources/images/feature_img_2.png" alt="" />
 									<h4>
 										MODERN <strong>DESIGN</strong>
 									</h4>
@@ -302,7 +299,7 @@
 						<div class="span4">
 							<div class="service">
 								<div class="customize">
-									<img src="resources/themes/images/feature_img_1.png" alt="" />
+									<img src="resources/images/feature_img_1.png" alt="" />
 									<h4>
 										FREE <strong>SHIPPING</strong>
 									</h4>
@@ -312,7 +309,7 @@
 						<div class="span4">
 							<div class="service">
 								<div class="support">
-									<img src="resources/themes/images/feature_img_3.png" alt="" />
+									<img src="resources/images/feature_img_3.png" alt="" />
 									<h4>
 										24/7 LIVE <strong>SUPPORT</strong>
 									</h4>
@@ -329,22 +326,22 @@
 			</h4>
 			<div class="row">
 				<div class="span2">
-					<a href="#"><img alt="" src="resources/themes/images/clients/01.png"></a>
+					<a href="#"><img alt="" src="resources/images/clients/01.png"></a>
 				</div>
 				<div class="span2">
-					<a href="#"><img alt="" src="resources/themes/images/clients/02.png"></a>
+					<a href="#"><img alt="" src="resources/images/clients/02.png"></a>
 				</div>
 				<div class="span2">
-					<a href="#"><img alt="" src="resources/themes/images/clients/03.png"></a>
+					<a href="#"><img alt="" src="resources/images/clients/03.png"></a>
 				</div>
 				<div class="span2">
-					<a href="#"><img alt="" src="resources/themes/images/clients/04.png"></a>
+					<a href="#"><img alt="" src="resources/images/clients/04.png"></a>
 				</div>
 				<div class="span2">
-					<a href="#"><img alt="" src="resources/themes/images/clients/05.png"></a>
+					<a href="#"><img alt="" src="resources/images/clients/05.png"></a>
 				</div>
 				<div class="span2">
-					<a href="#"><img alt="" src="resources/themes/images/clients/06.png"></a>
+					<a href="#"><img alt="" src="resources/images/clients/06.png"></a>
 				</div>
 			</div>
 		</section>

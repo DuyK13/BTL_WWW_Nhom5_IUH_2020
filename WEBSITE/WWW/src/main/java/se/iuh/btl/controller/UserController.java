@@ -11,20 +11,19 @@ import se.iuh.btl.entities.User;
 import se.iuh.btl.service.userservice.UserService;
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/listUser", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/listUser", method = RequestMethod.GET)
 	public String listUser(Model model) {
 		List<User> users = userService.getListUsers();
 		model.addAttribute("users", users);
 		return "list-users";
 	}
 
-	@RequestMapping(value = "showForm", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/showForm", method = RequestMethod.GET)
 	public String showFormForAdd(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);

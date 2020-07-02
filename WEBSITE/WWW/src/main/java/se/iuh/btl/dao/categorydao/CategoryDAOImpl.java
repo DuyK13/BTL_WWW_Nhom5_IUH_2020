@@ -12,6 +12,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+import com.sun.mail.util.QEncoderStream;
+
 import se.iuh.btl.entities.Category;
 
 @SuppressWarnings("unchecked")
@@ -56,7 +58,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	}
 
 	@Override
-	public List<Category> getCategoriesByName(String name) {
+	public Category getCategoryByName(String name) {
 		Session session = sessionFactory.getCurrentSession();
 		CriteriaBuilder cb = session.getCriteriaBuilder();
 		CriteriaQuery<Category> cq = cb.createQuery(Category.class);
@@ -64,7 +66,8 @@ public class CategoryDAOImpl implements CategoryDAO {
 		Expression<String> a = root.get("name");
 		cq.select(root).where(cb.like(a, "%" + name + "%"));
 		Query query = session.createQuery(cq);
-		return query.getResultList();
+		System.out.println(query.toString());
+		return (Category) query.getSingleResult();
 	}
 
 }

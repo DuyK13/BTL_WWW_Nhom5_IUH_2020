@@ -29,12 +29,15 @@
 						<tr>
 							<th>Name</th>
 						</tr>
+						<tr>
+							<th>${categories}</th>
+						</tr>
 
-						<c:forEach var="category" items="${categories}">
+						<%-- 						<c:forEach var="category" items="${categories}">
 							<tr>
 								<td>${category.name}</td>
 							</tr>
-						</c:forEach>
+						</c:forEach> --%>
 					</table>
 				</div>
 			</div>

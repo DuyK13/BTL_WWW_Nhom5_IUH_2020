@@ -19,5 +19,5 @@ public interface CategoryService {
 	 * @param name
 	 * @return
 	 */
-	public List<Category> getCategoriesByName(String name);
+	public Category getCategoryByName(String name);
 }

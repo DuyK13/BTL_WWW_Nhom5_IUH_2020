@@ -22,5 +22,5 @@ public interface ChocolateDAO {
 	 */
 	public List<Chocolate> getChocolatesByName(String name);
 	
-	public String saveImage(MultipartFile file);
+	public boolean saveImage(MultipartFile file, String path, String fileName);
 }

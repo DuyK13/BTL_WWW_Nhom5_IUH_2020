@@ -43,8 +43,8 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	@Transactional
-	public List<Category> getCategoriesByName(String name) {
-		return categoryDAO.getCategoriesByName(name);
+	public Category getCategoryByName(String name) {
+		return categoryDAO.getCategoryByName(name);
 	}
 
 }

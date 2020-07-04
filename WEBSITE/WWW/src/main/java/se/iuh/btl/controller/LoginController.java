@@ -13,13 +13,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import se.iuh.btl.entities.User;
 import se.iuh.btl.service.userservice.UserService;
 
 @Controller
-@RequestMapping({"/loginController", "/"})
 public class LoginController {
 	
 	@Autowired(required = true)
@@ -33,28 +31,33 @@ public class LoginController {
 		this.userService = userService;
 	}
 	
-	@GetMapping(value = "/login") 
+	@GetMapping("/")
+	public String getIndex() {
+		return "index";
+	}
+	
+	@GetMapping(value = "/loginController/login") 
 	public String displayLogin(Model model) { 
 		User user = new User();
 	    model.addAttribute("user", user); 
 	    return "login-register"; 
 	}
 	
-	@GetMapping(value = "/logout")
+	@GetMapping(value = "/loginController/logout")
 	public String logoutUser(HttpServletRequest request) {
 		HttpSession session = request.getSession(false);
 	    session.removeAttribute("userLogin");
 		return "redirect:/";
 	}
 	
-	@GetMapping(value = {"/listUserLogin"})
+	@GetMapping(value = {"/loginController/listUserLogin"})
 	public String listUser(Model model) {
 		List<User> users = userService.getListUsers();
 		model.addAttribute("users", users);
 		return "listUser";
 	}
 	
-	@RequestMapping(value= "/loginUser", method = RequestMethod.POST)
+	@RequestMapping(value= "/loginController/loginUser", method = RequestMethod.POST)
 	public String loginUser(@ModelAttribute("user") User user, ModelMap model, HttpServletRequest request) {
 		String userName = user.getUsername();
 		User u = userService.getUserByUserName(userName);
@@ -64,7 +67,7 @@ public class LoginController {
 				System.out.println("Login success");
 				HttpSession session = request.getSession();
 				session.setAttribute("userLogin", userName);
-				return "redirect:/";
+				return "redirect:/loginController";
 			}
 			else {
 				System.out.println("Login fail");

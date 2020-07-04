@@ -1,6 +1,8 @@
 package se.iuh.btl.dao.chocolatedao;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,10 +14,17 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
+import javax.servlet.Servlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
+import org.apache.taglibs.standard.lang.jstl.test.PageContextImpl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import se.iuh.btl.entities.Chocolate;
@@ -29,7 +38,8 @@ public class ChocolateDAOImpl implements ChocolateDAO {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-
+	
+	HttpServletRequest request;
 	@Override
 	public List<Chocolate> getChocoLates() {
 		Session session = sessionFactory.getCurrentSession();
@@ -74,17 +84,19 @@ public class ChocolateDAOImpl implements ChocolateDAO {
 	}
 
 	@Override
-	public String saveImage(MultipartFile file) {
-		System.out.println(file.toString());
+	public boolean saveImage(MultipartFile file, String path, String fileName) {
 		try {
+			String filename = file.getOriginalFilename();
 			byte[] bytes = file.getBytes();
-			Path path = Paths.get("/resources/image" + File.separator + file.getOriginalFilename());
-			Files.write(path, bytes);
-			return file.getOriginalFilename();
-		} catch (IOException e) {
+			BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream(new File(path + File.separator + filename)));	
+			outputStream.write(bytes);
+			outputStream.flush();
+			outputStream.close();
+			return true;
+		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
 		}
+		return false;
 	}
 
 }

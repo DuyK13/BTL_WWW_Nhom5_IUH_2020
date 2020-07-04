@@ -1,8 +1,12 @@
 package se.iuh.btl.controller;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,11 +40,6 @@ public class ChocolateController {
 		this.categoryService = categoryService;
 	}
 
-	@GetMapping("/")
-	public String getIndex() {
-		return "index";
-	}
-
 	@GetMapping(value = { "/chocolate/listchocolates" })
 	public String listChocolates(Model model) {
 		List<Chocolate> chocolates = chocolateService.getChocoLates();
@@ -59,13 +58,41 @@ public class ChocolateController {
 
 	@PostMapping("/chocolate/saveChocolate")
 	public String saveChocolate(@ModelAttribute("chocolate") SaveChocolateModel chocolate,
-			@RequestParam(value = "file") MultipartFile file, @RequestParam(value = "category") String category) {
-		String image = chocolateService.saveImage(file);
-		Chocolate realChocolate = new Chocolate(chocolate.getId(), chocolate.getName(), chocolate.getAmount(), chocolate.getCost(), chocolate.getDescription(), chocolate.getDiscount());
-		realChocolate.setImage(image);
-		System.out.println(category);
+			@RequestParam(value = "file") MultipartFile file, @RequestParam(value = "category") String category,
+			HttpSession session) {
+
+		/**
+		 * save file
+		 */
+		ServletContext context = session.getServletContext();
+		String path = context.getRealPath("resources/images");
+		File uploadRoot = new File(path);
+		if(!uploadRoot.exists()) {
+			uploadRoot.mkdirs();
+		}
+		String filename = file.getOriginalFilename();
+		if(filename!=null&&filename.length()>0) {
+			try {
+				File serverFile = new File(uploadRoot.getAbsolutePath() + File.separator + filename);
+				
+				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+				stream.write(file.getBytes());
+				stream.close();
+			} catch (Exception e) {
+				System.out.println(filename + "!@#" + uploadRoot);
+			}
+		}
+		/**
+		 * category
+		 */
+		Category c = categoryService.getCategoryByName(category);
+
+		Chocolate realChocolate = new Chocolate(chocolate.getId(), chocolate.getName(), chocolate.getAmount(),
+				chocolate.getCost(), chocolate.getDescription(), chocolate.getDiscount());
+		realChocolate.setImage(path);
+		realChocolate.setCategory(c);
 		chocolateService.saveChocoLate(realChocolate);
-		return "redirect:/chocolate/listChocolates";
+		return "redirect:/listChocolates";
 	}
 
 	@GetMapping("/updateChocolateForm/{id}")

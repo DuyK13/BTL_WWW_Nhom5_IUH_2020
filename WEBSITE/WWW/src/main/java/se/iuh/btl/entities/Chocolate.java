@@ -27,11 +27,25 @@ public class Chocolate implements Serializable {
 	private String image;
 	private int discount;
 
-	@OneToMany(mappedBy = "pk.chocolate")
+	@OneToMany(mappedBy = "pk.chocolate", fetch = FetchType.EAGER)
 	private List<BillDetail> listChiTietBill;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Category category;
+
+	public Chocolate(int id, String name, int amount, double cost, String description, String image, int discount,
+			List<BillDetail> listChiTietBill, Category category) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.amount = amount;
+		this.cost = cost;
+		this.description = description;
+		this.image = image;
+		this.discount = discount;
+		this.listChiTietBill = listChiTietBill;
+		this.category = category;
+	}
 
 	public Chocolate(int id, String name, int amount, double cost, String description, String image,
 			int discount, Category category) {

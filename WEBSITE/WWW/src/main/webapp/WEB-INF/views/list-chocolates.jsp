@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>>List chocolates</title>
+<title>List chocolates</title>
 <link
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -27,6 +27,7 @@
 				<div class="panel-body">
 					<table class="table table-striped table-bordered">
 						<tr>
+							<th>Id</th>
 							<th>Name</th>
 							<th>amount</th>
 							<th>cost</th>
@@ -43,7 +44,7 @@
 								<td>${chocolate.amount}</td>
 								<td>${chocolate.cost}</td>
 								<td>${chocolate.description}</td>
-								<td>${chocolate.image}</td>
+								<td><img alt="" src="${chocolate.image}"></td>
 								<td>${chocolate.discount}</td>
 								<td>${chocolate.category.name}</td>
 							</tr>

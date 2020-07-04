@@ -16,7 +16,6 @@ import se.iuh.btl.entities.User;
 import se.iuh.btl.service.userservice.UserService;
 
 @Controller
-@RequestMapping({"/registerController", "/"})
 public class RegisterController {
 	
 	@Autowired(required = true)
@@ -87,21 +86,21 @@ public class RegisterController {
 		this.userService = userService;
 	}
 
-	@GetMapping(value = "/register") 
+	@GetMapping(value = "/registerController/register") 
 	public String displayLogin(Model model) { 
 		User user = new User();
 	    model.addAttribute("user", user); 
 	    return "login-register"; 
 	}
 	
-	@GetMapping(value = {"/listUsers"})
+	@GetMapping(value = {"/registerController/listUsers"})
 	public String listUser(Model model) {
 		List<User> users = userService.getListUsers();
 		model.addAttribute("users", users);
 		return "listUser";
 	}
 	
-	@RequestMapping(value= "/saveUser", method = RequestMethod.POST)
+	@RequestMapping(value= "/registerController/saveUser", method = RequestMethod.POST)
 	public String saveUser(@ModelAttribute("user") User user) {
 		userService.addUser(user);
 		

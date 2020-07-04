@@ -50,8 +50,8 @@ public class ChocolateServiceImpl implements ChocolateService {
 
 	@Override
 	@Transactional
-	public String saveImage(MultipartFile file) {
-		return chocolateDAO.saveImage(file);
+	public boolean saveImage(MultipartFile file, String path, String fileName) {
+		return chocolateDAO.saveImage(file, path, fileName);
 	}
 
 }
